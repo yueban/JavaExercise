@@ -1,0 +1,59 @@
+digraph {
+compound=true;
+subgraph cluster_StateMachine {
+label="org.squirrelframework.foundation.fsm.HierarchicalStateMachineTest$HierachicalStateMachine";
+subgraph cluster_B {
+label="B";
+BHistory [label=""];
+B1 [label="B1"];
+subgraph cluster_B2 {
+label="B2";
+B2History [label=""];
+B2a [label="B2a"];
+}
+B3 [label="B3"];
+}
+D [label="D"];
+C [label="C"];
+subgraph cluster_A(this is A) {
+label="A(this is A)";
+A(this is A)History [label=""];
+subgraph cluster_A1 {
+label="A1";
+subgraph cluster_A1a {
+label="A1a";
+A1a1 [label="A1a1"];
+}
+}
+subgraph cluster_A2 {
+label="A2";
+A2History [label=""];
+A2a [label="A2a"];
+}
+A3 [label="A3"];
+A4 [label="A4"];
+}
+subgraph cluster_E {
+label="E";
+E1 [label="E1"];
+}
+
+B1 -> A3 [ltail="cluster_B",lhead="cluster_A(this is A)", label="B2A"];
+B1 -> B2a [lhead="cluster_B2", label="B12B2"];
+B2a -> A3 [ltail="cluster_B2",lhead="cluster_A(this is A)", label="B22A"];
+B2a -> B2a [ltail="cluster_B2", label="B22B2a"];
+D -> E1 [ label="D2E1"];
+A3 -> B1 [ltail="cluster_A(this is A)",lhead="cluster_B", label="A2B(this is A2B)"];
+A3 -> C [ltail="cluster_A(this is A)", label="Finish"];
+A3 -> D [ltail="cluster_A(this is A)", label="A2D"];
+A1a1 -> A2a [ltail="cluster_A1",lhead="cluster_A2", label="A12A2"];
+A1a1 -> A3 [ltail="cluster_A1", label="A12A3"];
+A1a1 -> A4 [ltail="cluster_A1", label="A12A4"];
+A1a1 -> B3 [ltail="cluster_A1", label="A12B3"];
+A1a1 -> A1a1 [ltail="cluster_A1", label="A12A1a1"];
+A1a1 -> A1a1 [ltail="cluster_A1",lhead="cluster_A1a", label="A12A1a"];
+A1a1 -> A1a1 [ltail="cluster_A1a", label="A1a2A1a1"];
+A1a1 -> A1a1 [lhead="cluster_A1", label="A1a12A1"];
+A1a1 -> A1a1 [lhead="cluster_A1a", label="A1a12A1a"];
+A2a -> A2a [ltail="cluster_A2", label="A22A2a"];
+A3 -> A1a1 [lhead="cluster_A1", label="A32A1"];}}

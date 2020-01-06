@@ -1,6 +1,9 @@
+package org.yueban;
+
 import org.squirrelframework.foundation.fsm.Condition;
 import org.squirrelframework.foundation.fsm.StateMachineBuilder;
 import org.squirrelframework.foundation.fsm.StateMachineBuilderFactory;
+import org.squirrelframework.foundation.fsm.TransitionPriority;
 import org.squirrelframework.foundation.fsm.impl.AbstractStateMachine;
 
 public class QuickStartSample2 {
@@ -32,10 +35,21 @@ public class QuickStartSample2 {
             }
         }).callMethod("fromAToC");
         builder.externalTransition().from("B").to("C").on(FSMEvent.ToC).callMethod("fromBToC");
+        //builder.internalTransition(TransitionPriority.HIGH).within("A").on(FSMEvent.WithinA).perform(new
+        // AnonymousAction<StateMachineSample, String, FSMEvent, MyContext>() {
+        //    @Override
+        //    public void execute(String from, String to, FSMEvent event, MyContext context,
+        //                        StateMachineSample stateMachine) {
+        //        System.out.println("from: " + from + " to: " + to + " action: " + event);
+        //    }
+        //});
+        builder.internalTransition(TransitionPriority.HIGH).within("A").on(FSMEvent.WithinA).callMethod("withinA");
+
         builder.onEntry("B").callMethod("ontoB");
 
         // 4. Use State Machine
         StateMachineSample fsm = builder.newStateMachine("A");
+        fsm.fire(FSMEvent.WithinA);
         //fsm.fire(FSMEvent.ToB, new MyContext("456"));
         //fsm.fire(FSMEvent.ToB, new MyContext("123"));
         new Thread(new Runnable() {
@@ -77,7 +91,7 @@ public class QuickStartSample2 {
 
     // 1. Define State Machine Event
     enum FSMEvent {
-        ToA, ToB, ToC, ToD
+        ToA, ToB, ToC, ToD, WithinA
     }
 
     private static class MyContext {
@@ -95,6 +109,11 @@ public class QuickStartSample2 {
 
     // 2. Define State Machine Class
     static class StateMachineSample extends AbstractStateMachine<StateMachineSample, String, FSMEvent, MyContext> {
+        protected void transitFromAToBOnToB(String from, String to, FSMEvent event, MyContext context) {
+            System.out.println("transitFromAToBOnToB from '" + from + "' to '" + to + "' on event '" + event + "' with context "
+                    + "'" + context + "'.");
+        }
+
         protected void fromAToB(String from, String to, FSMEvent event, MyContext context) {
             try {
                 Thread.sleep(3000);
@@ -119,6 +138,11 @@ public class QuickStartSample2 {
 
         protected void ontoB(String from, String to, FSMEvent event, MyContext context) {
             System.out.println("Entry State \'" + to + "\'.");
+        }
+
+        protected void withinA(String from, String to, FSMEvent event, MyContext context) {
+            System.out.println("Transition from '" + from + "' to '" + to + "' on event '" + event + "' with context "
+                    + "'" + context + "'.");
         }
     }
 }

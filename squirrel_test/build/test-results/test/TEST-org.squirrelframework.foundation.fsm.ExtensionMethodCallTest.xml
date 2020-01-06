@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.squirrelframework.foundation.fsm.ExtensionMethodCallTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-12-03T07:58:32" hostname="yueban-mbp.local" time="0.294">
+  <properties/>
+  <testcase name="testDeferBoundActionAnnotation2" classname="org.squirrelframework.foundation.fsm.ExtensionMethodCallTest" time="0.211"/>
+  <testcase name="testDeferBoundActionFromAny" classname="org.squirrelframework.foundation.fsm.ExtensionMethodCallTest" time="0.01"/>
+  <testcase name="testDeferBoundActionAnnotation" classname="org.squirrelframework.foundation.fsm.ExtensionMethodCallTest" time="0.006"/>
+  <testcase name="testDeferBoundActionOnAny" classname="org.squirrelframework.foundation.fsm.ExtensionMethodCallTest" time="0.007"/>
+  <testcase name="testDeferBoundActionToAny" classname="org.squirrelframework.foundation.fsm.ExtensionMethodCallTest" time="0.006"/>
+  <testcase name="testExtensionMethodCallSequence" classname="org.squirrelframework.foundation.fsm.ExtensionMethodCallTest" time="0.053"/>
+  <system-out><![CDATA[2019-12-03 15:58:33,124  INFO [Test worker] (StateMachineLogger.java:48) - UntypedStateMachineBase(kFLdjewkgP): Transition from "A" on "ToB" with context "91" begin.
+2019-12-03 15:58:33,128  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "beforeExitAny:100" (1 of 16).
+2019-12-03 15:58:33,130  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "beforeExitAny:100" which took 796.8 μs.
+2019-12-03 15:58:33,130  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "leftA:0" (2 of 16).
+2019-12-03 15:58:33,131  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "leftA:0" which took 449.5 μs.
+2019-12-03 15:58:33,131  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "exitA:-10" (3 of 16).
+2019-12-03 15:58:33,132  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "exitA:-10" which took 323.8 μs.
+2019-12-03 15:58:33,132  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "afterExitAny:-100" (4 of 16).
+2019-12-03 15:58:33,133  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "afterExitAny:-100" which took 513.7 μs.
+2019-12-03 15:58:33,133  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "fromAToB:0" (5 of 16).
+2019-12-03 15:58:33,133  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "fromAToB:0" which took 487.8 μs.
+2019-12-03 15:58:33,134  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "transitFromAnyToBOnToBEx:0" (6 of 16).
+2019-12-03 15:58:33,134  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "transitFromAnyToBOnToBEx:0" which took 391.7 μs.
+2019-12-03 15:58:33,134  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "transitFromAToBOnToBWhenExcellect:-10" (7 of 16).
+2019-12-03 15:58:33,135  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "transitFromAToBOnToBWhenExcellect:-10" which took 251.6 μs.
+2019-12-03 15:58:33,135  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "transitFromAToBOnToB:-10" (8 of 16).
+2019-12-03 15:58:33,136  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "transitFromAToBOnToB:-10" which took 1.304 ms.
+2019-12-03 15:58:33,137  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "transitFromAnyToBOnToB:-10" (9 of 16).
+2019-12-03 15:58:33,138  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "transitFromAnyToBOnToB:-10" which took 472.6 μs.
+2019-12-03 15:58:33,138  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "transitFromAToAnyOnToB:-10" (10 of 16).
+2019-12-03 15:58:33,138  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "transitFromAToAnyOnToB:-10" which took 366.6 μs.
+2019-12-03 15:58:33,139  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "transitFromAToB:-10" (11 of 16).
+2019-12-03 15:58:33,140  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "transitFromAToB:-10" which took 819.6 μs.
+2019-12-03 15:58:33,140  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "onToB:-10" (12 of 16).
+2019-12-03 15:58:33,141  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "onToB:-10" which took 363.5 μs.
+2019-12-03 15:58:33,141  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "beforeEntryAny:100" (13 of 16).
+2019-12-03 15:58:33,141  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "beforeEntryAny:100" which took 379.1 μs.
+2019-12-03 15:58:33,142  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "enterB:0" (14 of 16).
+2019-12-03 15:58:33,142  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "enterB:0" which took 402.0 μs.
+2019-12-03 15:58:33,143  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "entryB:-10" (15 of 16).
+2019-12-03 15:58:33,143  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "entryB:-10" which took 350.8 μs.
+2019-12-03 15:58:33,144  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "afterEntryAny:-100" (16 of 16).
+2019-12-03 15:58:33,145  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "afterEntryAny:-100" which took 1.247 ms.
+2019-12-03 15:58:33,146  INFO [Test worker] (StateMachineLogger.java:54) - UntypedStateMachineBase(kFLdjewkgP): Transition from "A" to "B" on "ToB" complete which took 22.89 ms.
+2019-12-03 15:58:33,147  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "beforeExitAny:100" (1 of 2).
+2019-12-03 15:58:33,147  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "beforeExitAny:100" which took 440.5 μs.
+2019-12-03 15:58:33,148  INFO [Test worker] (StateMachineLogger.java:75) - Before execute method call action "afterExitAny:-100" (2 of 2).
+2019-12-03 15:58:33,148  INFO [Test worker] (StateMachineLogger.java:81) - After execute method call action "afterExitAny:-100" which took 394.1 μs.
+2019-12-03 15:58:33,153  INFO [Test worker] (StateMachineLogger.java:42) - UntypedStateMachineBase(kFLdjewkgP): Terminated.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
